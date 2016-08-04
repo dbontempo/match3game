@@ -1,18 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Piece : MonoBehaviour {
+public class Piece : MonoBehaviour
+{
 	public float speed = 0.1F;
 	public BoardSpot mySpot;
+	public Board board;
+
+	public int Color;
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 	
 	}
 	
 	// Update is called once per frame
-	void OnMouseDown () {
+	void OnMouseDown ()
+	{
+		board.CheckMatches (mySpot);
 //		Debug.Log("Touched");
+	}
+
+	public void DestroyPiece ()
+	{
 		mySpot = null;
-		Destroy(this.gameObject);
+		board = null;
+		Destroy (this.gameObject);
 	}
 }
