@@ -33,7 +33,7 @@ public class BoardSpot : MonoBehaviour
 
 	public void DestroyPiece ()
 	{
-		myPiece.DestroyPiece ();
+		myPiece.RemovePiece();
 		myPiece = null;
 	}
 }

@@ -7,11 +7,13 @@ public class Piece : MonoBehaviour
 	public BoardSpot mySpot;
 	public Board board;
 
+	private Animator animator;
+
 	public int Color;
 	// Use this for initialization
 	void Start ()
 	{
-	
+		animator = gameObject.GetComponent<Animator> ();
 	}
 	
 	// Update is called once per frame
@@ -19,6 +21,14 @@ public class Piece : MonoBehaviour
 	{
 		board.CheckMatches (mySpot);
 //		Debug.Log("Touched");
+	}
+
+	public void RemovePiece() {
+		if (animator != null) {
+			animator.Play ("Remove");
+		} else {
+			DestroyPiece ();
+		}
 	}
 
 	public void DestroyPiece ()
